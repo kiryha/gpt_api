@@ -1,3 +1,4 @@
 # Skip PyCharm
 .idea
-set_api_key.bat
+__pycache__/
+gpt_api/open_api_key.py
