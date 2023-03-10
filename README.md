@@ -1,4 +1,5 @@
 # Chat GPT R&D
+![alt text](https://github.com/kiryha/gpt_api/blob/master/images/chat_gpt.png?raw=true)
 
 #### Getting Started with Chat GPT Python API
 - Install Python 3
@@ -42,7 +43,6 @@ while True:
 ##### Chat GPT UI example
 ###### How to run
 Download and unzip repository to your local folder.
-Alternatively, can install "GitHub Desktop" application and clone this repo to your local drive. 
 
 Create open_api_key.py file next to chat_gpt.py and record you API key there:
 
