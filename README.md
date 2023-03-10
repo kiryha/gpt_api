@@ -1,5 +1,5 @@
 # Chat GPT R&D
-![alt text](https://github.com/kiryha/gpt_api/blob/master/images/chat_gpt.png?raw=true)
+![](./gpt_api/images/chat_gpt.png)
 
 #### Getting Started with Chat GPT Python API
 - Install Python 3
