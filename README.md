@@ -40,11 +40,9 @@ while True:
 ```
 
 ##### Chat GPT UI example
+###### How to run
 Download and unzip repository to your local folder.
-
-Advanced users can install "GitHub Desktop" application and clone this repo to your local drive. 
-
-Modify run_chat_gpt.bat with your path to Python3 install dir. Double click run_chat_gpt.bat to launch application.
+Alternatively, can install "GitHub Desktop" application and clone this repo to your local drive. 
 
 Create open_api_key.py file next to chat_gpt.py and record you API key there:
 
@@ -52,10 +50,12 @@ Create open_api_key.py file next to chat_gpt.py and record you API key there:
 OPEN_API_KEY = 'your API key'
 ```
 
-Modify _compile_ui.bat with your path to pyside2-uic.exe.
+Modify run_chat_gpt.bat with your path to Python3 install dir. Double click run_chat_gpt.bat to launch application.
 
-Modify UI file chat_gpt_main.ui with QTDesigner, save, drag and drop on _compile_ui.bat to update changes.
+###### How to modify
+To be able to edit UI file as you need, modify _compile_ui.bat with your path to pyside2-uic.exe.
+Edit UI file chat_gpt_main.ui with QTDesigner, save, drag and drop on _compile_ui.bat to update changes.
 
-QTDesigner located in:
+QTDesigner located in: `YourPython3Folder\Lib\site-packages\PySide2\designer.exe`
 
-`YourPython3Folder\Lib\site-packages\PySide2\designer.exe`
+Edit code, run the gpt_api.py, enjoy :)
