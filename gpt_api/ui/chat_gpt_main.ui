@@ -16,12 +16,12 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <layout class="QVBoxLayout" name="layout"/>
+     <widget class="QTableView" name="tab_chat"/>
     </item>
     <item>
      <widget class="QPushButton" name="btn_test">
       <property name="text">
-       <string>PushButton</string>
+       <string>EXECUTE</string>
       </property>
      </widget>
     </item>

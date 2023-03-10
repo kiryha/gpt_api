@@ -22,10 +22,10 @@ class Ui_ChatGPT(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.layout = QVBoxLayout()
-        self.layout.setObjectName(u"layout")
+        self.tab_chat = QTableView(self.centralwidget)
+        self.tab_chat.setObjectName(u"tab_chat")
 
-        self.verticalLayout.addLayout(self.layout)
+        self.verticalLayout.addWidget(self.tab_chat)
 
         self.btn_test = QPushButton(self.centralwidget)
         self.btn_test.setObjectName(u"btn_test")
@@ -48,6 +48,6 @@ class Ui_ChatGPT(object):
 
     def retranslateUi(self, ChatGPT):
         ChatGPT.setWindowTitle(QCoreApplication.translate("ChatGPT", u"MainWindow", None))
-        self.btn_test.setText(QCoreApplication.translate("ChatGPT", u"PushButton", None))
+        self.btn_test.setText(QCoreApplication.translate("ChatGPT", u"EXECUTE", None))
     # retranslateUi
 
