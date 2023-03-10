@@ -1,8 +1,10 @@
-# Chat GPT Windows R&D
+# Chat GPT Python API First Steps
 ![](./gpt_api/images/chat_gpt.png)
 
 #### Getting Started with Chat GPT Python API
-- Install Python 3. Notice where it was installed, mine is in `C:\Users\username\AppData\Local\Programs\Python\Python310\`
+- Install Python 3. Notice where it was installed. 
+Mine is in `C:\Users\username\AppData\Local\Programs\Python\Python310\`, I am on Windows,
+for another OS things can be quite different.
 
 - Install "openai" python library: launch Command Prompt window and run command `pip install openai`
 If you succeed those steps the chances to get to the finish are quite high for you :)
@@ -45,7 +47,7 @@ while True:
         messages.append({'role': 'assistant', 'content': reply})
 ```
 
-##### Chat GPT UI example
+##### Chat GPT UI example (gpt_api.py)
 ###### How to run
 Download and unzip repository to your local folder.
 
