@@ -1,12 +1,17 @@
-# Chat GPT R&D
+# Chat GPT Windows R&D
 ![](./gpt_api/images/chat_gpt.png)
 
 #### Getting Started with Chat GPT Python API
-- Install Python 3
-- Install openai library: pip install openai
+- Install Python 3. Notice where it was installed, mine is in `C:\Users\username\AppData\Local\Programs\Python\Python310\`
+
+- Install "openai" python library: launch Command Prompt window and run command `pip install openai`
+If you succeed those steps the chances to get to the finish are quite high for you :)
+
 - Create account on https://platform.openai.com/overview
-- Setup payment method and get API key
-- Write python code
+- Setup payment method, you will need some tiny amount of money to spend. 
+- Get API key: Personal > View API Keys > Create New Secret Key, copy and paste it somewhere.
+- Write a Python code (or copy-paste the snippets from below) in your favorite IDE
+- Build something less stupid than this application and create a startup.
 
 ##### Chat GPT Hello World
 ```Python
@@ -14,7 +19,7 @@ import openai
 
 openai.api_key = 'paste your api key here'
 
-message = "What is the distance to sun in kilometers?"
+message = "What is the distance to sun?"
 messages = [{"role": "user", "content": message}]
 completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
 
