@@ -20,17 +20,15 @@ completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messag
 print(completion.choices[0].message.content)
 ```
 
-##### Chat GPT basic setup
+##### Chat GPT command line conversation
 ```Python
 import openai
 
 openai.api_key = 'paste your api key here'
 
-messages = []
-message = input('Chat GPT: How can I assist you today?')
-if message:
-    messages.append({"role": "user", "content": message})
+print('Chat GPT: How can I assist you today?')
 
+messages = []
 while True:
     message = input('User: ')
     if message:
@@ -40,3 +38,24 @@ while True:
         print(f'Chat GPT: {reply}')
         messages.append({'role': 'assistant', 'content': reply})
 ```
+
+##### Chat GPT UI example
+Download and unzip repository to your local folder.
+
+Advanced users can install "GitHub Desktop" application and clone this repo to your local drive. 
+
+Modify run_chat_gpt.bat with your path to Python3 install dir. Double click run_chat_gpt.bat to launch application.
+
+Create open_api_key.py file next to chat_gpt.py and record you API key there:
+
+```Python
+OPEN_API_KEY = 'your API key'
+```
+
+Modify _compile_ui.bat with your path to pyside2-uic.exe.
+
+Modify UI file chat_gpt_main.ui with QTDesigner, save, drag and drop on _compile_ui.bat to update changes.
+
+QTDesigner located in:
+
+`YourPython3Folder\Lib\site-packages\PySide2\designer.exe`

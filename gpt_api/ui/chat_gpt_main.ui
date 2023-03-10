@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>529</width>
-    <height>905</height>
+    <height>543</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,12 +16,15 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTableView" name="tab_chat"/>
+     <widget class="QTextEdit" name="chat"/>
     </item>
     <item>
-     <widget class="QPushButton" name="btn_test">
+     <widget class="QLineEdit" name="message"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="start_new">
       <property name="text">
-       <string>EXECUTE</string>
+       <string>Start New Chat</string>
       </property>
      </widget>
     </item>

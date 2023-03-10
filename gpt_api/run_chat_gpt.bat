@@ -1,0 +1,1 @@
+"C:\Users\kko8\AppData\Local\Programs\Python\Python310\python.exe" %cd%\gpt_api.py

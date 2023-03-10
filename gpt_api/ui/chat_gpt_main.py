@@ -17,20 +17,25 @@ class Ui_ChatGPT(object):
     def setupUi(self, ChatGPT):
         if not ChatGPT.objectName():
             ChatGPT.setObjectName(u"ChatGPT")
-        ChatGPT.resize(529, 905)
+        ChatGPT.resize(529, 543)
         self.centralwidget = QWidget(ChatGPT)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.tab_chat = QTableView(self.centralwidget)
-        self.tab_chat.setObjectName(u"tab_chat")
+        self.chat = QTextEdit(self.centralwidget)
+        self.chat.setObjectName(u"chat")
 
-        self.verticalLayout.addWidget(self.tab_chat)
+        self.verticalLayout.addWidget(self.chat)
 
-        self.btn_test = QPushButton(self.centralwidget)
-        self.btn_test.setObjectName(u"btn_test")
+        self.message = QLineEdit(self.centralwidget)
+        self.message.setObjectName(u"message")
 
-        self.verticalLayout.addWidget(self.btn_test)
+        self.verticalLayout.addWidget(self.message)
+
+        self.start_new = QPushButton(self.centralwidget)
+        self.start_new.setObjectName(u"start_new")
+
+        self.verticalLayout.addWidget(self.start_new)
 
         ChatGPT.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(ChatGPT)
@@ -48,6 +53,6 @@ class Ui_ChatGPT(object):
 
     def retranslateUi(self, ChatGPT):
         ChatGPT.setWindowTitle(QCoreApplication.translate("ChatGPT", u"Chat GPT", None))
-        self.btn_test.setText(QCoreApplication.translate("ChatGPT", u"EXECUTE", None))
+        self.start_new.setText(QCoreApplication.translate("ChatGPT", u"Start New Chat", None))
     # retranslateUi
 
