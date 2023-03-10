@@ -47,7 +47,7 @@ class Ui_ChatGPT(object):
     # setupUi
 
     def retranslateUi(self, ChatGPT):
-        ChatGPT.setWindowTitle(QCoreApplication.translate("ChatGPT", u"MainWindow", None))
+        ChatGPT.setWindowTitle(QCoreApplication.translate("ChatGPT", u"Chat GPT", None))
         self.btn_test.setText(QCoreApplication.translate("ChatGPT", u"EXECUTE", None))
     # retranslateUi
 

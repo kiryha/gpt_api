@@ -5,9 +5,6 @@ from PySide2 import QtWidgets, QtCore, QtGui
 from ui import chat_gpt_main
 
 
-openai.api_key = OPEN_API_KEY
-root = os.path.dirname(os.path.abspath(__file__))
-
 # messages = []
 # message = input('Chat GPT: How can I assist you today?')
 # if message:
@@ -23,9 +20,24 @@ root = os.path.dirname(os.path.abspath(__file__))
 #         messages.append({'role': 'assistant', 'content': reply})
 
 
+class ChatGPT:
+    def __init__(self):
+        self.messages = []
+
+    def add_user_message(self, message):
+
+        self.messages.append({"role": "user", "content": message})
+        completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=self.messages)
+        reply = completion.choices[0].message.content
+        self.messages.append({'role': 'assistant', 'content': reply})
+
+        return reply
+
+
 class ChatModel(QtCore.QAbstractTableModel):
-    def __init__(self, parent=None):
-        QtCore.QAbstractTableModel.__init__(self, parent)
+    def __init__(self, chat_gpt):
+        QtCore.QAbstractTableModel.__init__(self)
+        self.chat_gpt = chat_gpt
         self.header = ['How can I assist you today?']
 
     def flags(self, index):
@@ -39,7 +51,7 @@ class ChatModel(QtCore.QAbstractTableModel):
 
     def rowCount(self, parent):
 
-        return 100
+        return len(self.chat_gpt.messages) + 1
 
     def columnCount(self, parent):
 
@@ -51,23 +63,35 @@ class ChatModel(QtCore.QAbstractTableModel):
             return
 
         row = index.row()
-        column = index.column()
 
         if role == QtCore.Qt.BackgroundRole:
             if row % 2 == 0:
                 return QtGui.QBrush(QtGui.QColor('#f2f2f2'))
 
-        # if role == QtCore.Qt.DisplayRole:
-        #     return 'AA'
+        if role == QtCore.Qt.DisplayRole:
+            if len(self.chat_gpt.messages) > row:
+                return self.chat_gpt.messages[row]['content']
+
+    def setData(self, index, cell_data, role=QtCore.Qt.EditRole):
+
+        if role == QtCore.Qt.EditRole:
+
+            print(self.chat_gpt.add_user_message(cell_data))
+            return True
 
 
-class ChatGPT(QtWidgets.QMainWindow, chat_gpt_main.Ui_ChatGPT):
+class ChatGPTMain(QtWidgets.QMainWindow, chat_gpt_main.Ui_ChatGPT):
     def __init__(self):
-        super(ChatGPT, self).__init__()
+        super(ChatGPTMain, self).__init__()
         self.setupUi(self)
-        self.init_ui()
+        self.chat_gpt = ChatGPT()
+        self.chat_model = ChatModel(self.chat_gpt)
 
-        self.btn_test.clicked.connect(self.execute)
+        self.init_ui()
+        self.tab_chat.setModel(self.chat_model)
+
+        self.btn_test.clicked.connect(self.update)
+        self.tab_chat.clicked.connect(self.update)
 
     def init_ui(self):
 
@@ -76,16 +100,15 @@ class ChatGPT(QtWidgets.QMainWindow, chat_gpt_main.Ui_ChatGPT):
         self.tab_chat.horizontalHeader().ResizeMode(QtWidgets.QHeaderView.ResizeToContents)
         self.tab_chat.horizontalHeader().setStretchLastSection(True)
 
-        self.chat_model = ChatModel()
-        self.tab_chat.setModel(self.chat_model)
-
-    def execute(self):
-        pass
+    def update(self):
+        self.chat_model.layoutChanged.emit()
 
 
 if __name__ == "__main__":
+    openai.api_key = OPEN_API_KEY
+    root = os.path.dirname(os.path.abspath(__file__))
     app = QtWidgets.QApplication([])
-    gpt = ChatGPT()
+    gpt = ChatGPTMain()
     gpt.setWindowIcon(QtGui.QIcon('{0}/icons/gpt.ico'.format(root)))
     gpt.show()
     app.exec_()
